@@ -8,6 +8,7 @@ import { provideMessaging, getMessaging } from '@angular/fire/messaging';
 import { provideStorage, getStorage, connectStorageEmulator } from '@angular/fire/storage';
 import { routes } from './app.routes';
 import { provideRouter } from '@angular/router';
+import { getAnalytics, provideAnalytics, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,6 +20,6 @@ export const appConfig: ApplicationConfig = {
       provideStorage(() => getStorage()),
       provideMessaging(() => getMessaging())
     ),
-    provideRouter(routes)
+    provideRouter(routes), provideFirebaseApp(() => initializeApp({"projectId":"friendlychat-d9ad9","appId":"1:1010832809165:web:3f548f4f805aba89859d84","storageBucket":"friendlychat-d9ad9.firebasestorage.app","apiKey":"AIzaSyCxpbdqvlA8mlbCLjBwAy09ul1lwG-AweU","authDomain":"friendlychat-d9ad9.firebaseapp.com","messagingSenderId":"1010832809165","measurementId":"G-E26SG9GZXE","projectNumber":"1010832809165","version":"2"})), provideAuth(() => getAuth()), provideAnalytics(() => getAnalytics()), ScreenTrackingService, UserTrackingService, provideFirestore(() => getFirestore()), provideMessaging(() => getMessaging()), provideStorage(() => getStorage())
   ],
 };
